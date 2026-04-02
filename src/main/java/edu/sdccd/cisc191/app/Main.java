@@ -21,8 +21,8 @@ public class Main {
 
         // TODO add at least 3 students
         studentService.addStudent(new Student(1, "Eva", 4.0));
-        studentService.addStudent(new Student(1, "Danny", 2.2));
-        studentService.addStudent(new Student(1, "Savine", 3.7));
+        studentService.addStudent(new Student(2, "Danny", 2.2));
+        studentService.addStudent(new Student(3, "Savine", 3.7));
 
         // TODO add at least 3 courses linked to students
         courseRepo.save(new Course(1, "Math", 1));
@@ -45,6 +45,7 @@ public class Main {
         studentService.changeGpa(1, 3.75);
 
         // TODO delete one student
+        courseRepo.deleteByStudentId(2);
         studentService.removeStudent(2);
 
         // TODO print remaining students and courses
