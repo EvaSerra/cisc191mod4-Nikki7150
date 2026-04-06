@@ -83,6 +83,10 @@ public class JdbcCourseRepository implements CourseRepository {
     // added delete nby student to not violate foreign key reqs
     @Override
     public void deleteByStudentId(int studentId) {
+        /*
+        * Made unnecessary for the assignment after adding
+        * ON DELETE CASCADE to DatabaseInitializer. Could still be used for other purposes.
+        */
         String sql = "DELETE FROM courses WHERE student_id = ?";
 
         try (Connection conn = DatabaseConfig.getConnection();

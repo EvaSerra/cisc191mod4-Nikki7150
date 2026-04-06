@@ -15,7 +15,7 @@ public class Main {
         DatabaseInitializer.initialize();
 
         // TODO create student service and repositories
-        StudentRepository studentRepo = new JdbcStudentRepository();
+        StudentRepository studentRepo = new JdbcStudentRepository(); //Not needed
         CourseRepository  courseRepo = new JdbcCourseRepository();
         StudentService studentService = new StudentService(studentRepo);
 
@@ -33,6 +33,10 @@ public class Main {
         System.out.println("All Students: ");
         studentService.getAllStudents().forEach(System.out::println);
 
+        //Printed all courses here to make it more clear that deleting students deleted courses:
+        System.out.println("All Courses: ");
+        courseRepo.findAll().forEach(System.out::println);
+
         // TODO find one student by ID
         System.out.println("\nFind student by ID: ");
         System.out.println(studentService.getStudent(1));
@@ -45,7 +49,8 @@ public class Main {
         studentService.changeGpa(1, 3.75);
 
         // TODO delete one student
-        courseRepo.deleteByStudentId(2);
+        //Made unnecessary after adding ON DELETE CASCADE to DatabaseInitializer
+        //courseRepo.deleteByStudentId(2);
         studentService.removeStudent(2);
 
         // TODO print remaining students and courses

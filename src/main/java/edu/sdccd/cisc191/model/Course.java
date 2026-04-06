@@ -7,14 +7,15 @@ public class Course {
 
     public Course(int id, String title, int studentId) {
         // TODO validate fields and assign them
+        //Changed the error messages for easier debugging
         if (id<=0) {
-            throw new IllegalArgumentException("Invalid ID");
+            throw new IllegalArgumentException("Course ID must be between 0.0 and 4.0");
         }
         if (title==null || title.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid title");
+            throw new IllegalArgumentException("Course title can't be blank");
         }
         if (studentId<=0) {
-            throw new IllegalArgumentException("Invalid Student ID");
+            throw new IllegalArgumentException("Student ID must be a positive number");
         }
 
         this.id = id;

@@ -7,14 +7,15 @@ public class Student {
 
     public Student(int id, String name, double gpa) {
         // TODO validate fields and assign them
+        //Changed the error messages for easier debugging
         if (id<=0) {
-            throw new IllegalArgumentException("Invalid ID");
+            throw new IllegalArgumentException("ID must be higher than 0");
         }
         if (name==null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid title");
+            throw new IllegalArgumentException("Name can't be blank");
         }
         if (gpa<0.0 || gpa>4.0) {
-            throw new IllegalArgumentException("Invalid GPA");
+            throw new IllegalArgumentException("GPA must be between 0.0 and 4.0");
         }
 
         this.id = id;
@@ -39,16 +40,18 @@ public class Student {
 
     public void setName(String name) {
         // TODO validate and assign
+        //Changed the error message for easier debugging
         if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Invalid name");
+            throw new IllegalArgumentException("New name can't be blank");
         }
         this.name = name;
     }
 
     public void setGpa(double gpa) {
         // TODO validate and assign
+        //Changed the error message for easier debugging
         if (gpa<0.0 || gpa>4.0) {
-            throw new IllegalArgumentException("Invalid GPA");
+            throw new IllegalArgumentException("New GPA must be between 0.0 and 4.0");
         }
         this.gpa = gpa;
     }

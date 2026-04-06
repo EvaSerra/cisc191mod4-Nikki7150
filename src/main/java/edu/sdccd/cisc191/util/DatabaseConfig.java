@@ -10,5 +10,8 @@ public class DatabaseConfig {
     public static Connection getConnection() throws SQLException {
         // TODO return a DriverManager connection
         return DriverManager.getConnection(URL, "sa", "");
+        //It's unnecessary to add user and password for this assignment
+        // Could use:
+        //return DriverManager.getConnection(URL)
     }
 }

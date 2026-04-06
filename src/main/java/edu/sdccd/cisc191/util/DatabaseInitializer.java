@@ -28,9 +28,15 @@ public class DatabaseInitializer {
                     id INT PRIMARY KEY,
                     title VARCHAR(100) NOT NULL,
                     student_id INT,
-                    FOREIGN KEY (student_id) REFERENCES students(id)
+                    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
                     );
                     """;
+            /* Could add ON DELETE CASCADE to avoid having to use deleteByStudentId
+             */
+
+            //Deletes existing data when run avoids mistakes of repeated data
+            stmt.execute("DROP TABLE IF EXISTS courses");
+            stmt.execute("DROP TABLE IF EXISTS students");
 
             stmt.execute(studentsTable);
             stmt.execute(coursesTable);
